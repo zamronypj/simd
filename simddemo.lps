@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="8">
+      <Unit0>
+        <Filename Value="simddemo.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="35" Y="11"/>
+        <UsageCount Value="20"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="ufrmmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAddVector"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmMain"/>
+        <TopLine Value="31"/>
+        <CursorPos X="44" Y="45"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="vectors/vectoroperation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="vectorOperation"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="3" Y="14"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="vectors/vectortype.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="vectorType"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="47" Y="12"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="vectors/vectorstdoperation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="vectors/vectorbaseopeation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="vectorbaseoperation"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20"/>
+        <UsageCount Value="20"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="vectors/vectorbaseoperation.pas"/>
+        <EditorIndex Value="2"/>
+        <CursorPos Y="15"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="16"/>
+        <CursorPos X="21" Y="31"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit7>
+    </Units>
+    <JumpHistory Count="28" HistoryIndex="27">
+      <Position1>
+        <Filename Value="vectors/vectorstdoperation.pas"/>
+        <Caret Line="12" Column="6"/>
+      </Position1>
+      <Position2>
+        <Filename Value="vectors/vectorstdoperation.pas"/>
+        <Caret Line="11" Column="32"/>
+      </Position2>
+      <Position3>
+        <Filename Value="vectors/vectorbaseoperation.pas"/>
+      </Position3>
+      <Position4>
+        <Filename Value="vectors/vectorbaseoperation.pas"/>
+        <Caret Line="8" Column="37"/>
+      </Position4>
+      <Position5>
+        <Filename Value="vectors/vectorstdoperation.pas"/>
+        <Caret Line="16" Column="16"/>
+      </Position5>
+      <Position6>
+        <Filename Value="vectors/vectorstdoperation.pas"/>
+        <Caret Line="39" Column="32"/>
+      </Position6>
+      <Position7>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="14" Column="24"/>
+      </Position7>
+      <Position8>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="17" Column="42"/>
+      </Position8>
+      <Position9>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="32" Column="4" TopLine="10"/>
+      </Position9>
+      <Position10>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="28" TopLine="7"/>
+      </Position10>
+      <Position11>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="22" Column="10" TopLine="14"/>
+      </Position11>
+      <Position12>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="28" Column="18" TopLine="14"/>
+      </Position12>
+      <Position13>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="9" Column="35"/>
+      </Position13>
+      <Position14>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="34" Column="34" TopLine="23"/>
+      </Position14>
+      <Position15>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="32" Column="29" TopLine="31"/>
+      </Position15>
+      <Position16>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="33" Column="102" TopLine="26"/>
+      </Position16>
+      <Position17>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="84" Column="35" TopLine="57"/>
+      </Position17>
+      <Position18>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="9" Column="30" TopLine="4"/>
+      </Position18>
+      <Position19>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="44" TopLine="31"/>
+      </Position19>
+      <Position20>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="80" Column="29" TopLine="61"/>
+      </Position20>
+      <Position21>
+        <Filename Value="ufrmmain.pas"/>
+        <Caret Line="45" Column="44" TopLine="31"/>
+      </Position21>
+      <Position22>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="32" Column="46" TopLine="14"/>
+      </Position22>
+      <Position23>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="30" Column="21" TopLine="14"/>
+      </Position23>
+      <Position24>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="33" Column="36" TopLine="14"/>
+      </Position24>
+      <Position25>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="30" TopLine="14"/>
+      </Position25>
+      <Position26>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="35" Column="15" TopLine="14"/>
+      </Position26>
+      <Position27>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="32" Column="16" TopLine="14"/>
+      </Position27>
+      <Position28>
+        <Filename Value="vectors/vectorsseoperation.pas"/>
+        <Caret Line="31" Column="5" TopLine="17"/>
+      </Position28>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="vectors/vectorsseoperation.pas"/>
+        <Line Value="32"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

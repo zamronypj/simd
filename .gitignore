@@ -1,0 +1,5 @@
+*.lps
+backup/
+bin/
+*.bak
+lib/

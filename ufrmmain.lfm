@@ -1,0 +1,115 @@
+object frmAddVector: TfrmAddVector
+  Left = 1745
+  Height = 325
+  Top = 162
+  Width = 665
+  Caption = 'Add Vector'
+  ClientHeight = 325
+  ClientWidth = 665
+  LCLVersion = '1.6.2.0'
+  object edVec1X: TEdit
+    Left = 56
+    Height = 27
+    Top = 40
+    Width = 80
+    TabOrder = 0
+    Text = '0'
+  end
+  object edVec1Y: TEdit
+    Left = 176
+    Height = 27
+    Top = 40
+    Width = 80
+    TabOrder = 1
+    Text = '0'
+  end
+  object edVec1Z: TEdit
+    Left = 296
+    Height = 27
+    Top = 40
+    Width = 80
+    TabOrder = 2
+    Text = '0'
+  end
+  object edVec1W: TEdit
+    Left = 416
+    Height = 27
+    Top = 40
+    Width = 80
+    TabOrder = 3
+    Text = '0'
+  end
+  object edVec2X: TEdit
+    Left = 56
+    Height = 27
+    Top = 96
+    Width = 80
+    TabOrder = 4
+    Text = '0'
+  end
+  object edVec2Y: TEdit
+    Left = 176
+    Height = 27
+    Top = 96
+    Width = 80
+    TabOrder = 5
+    Text = '0'
+  end
+  object edVec2Z: TEdit
+    Left = 296
+    Height = 27
+    Top = 96
+    Width = 80
+    TabOrder = 6
+    Text = '0'
+  end
+  object edVec2W: TEdit
+    Left = 416
+    Height = 27
+    Top = 96
+    Width = 80
+    TabOrder = 7
+    Text = '0'
+  end
+  object edResultX: TEdit
+    Left = 56
+    Height = 27
+    Top = 224
+    Width = 80
+    TabOrder = 8
+    Text = '0'
+  end
+  object edResultY: TEdit
+    Left = 176
+    Height = 27
+    Top = 224
+    Width = 80
+    TabOrder = 9
+    Text = '0'
+  end
+  object edResultZ: TEdit
+    Left = 296
+    Height = 27
+    Top = 224
+    Width = 80
+    TabOrder = 10
+    Text = '0'
+  end
+  object edResultW: TEdit
+    Left = 416
+    Height = 27
+    Top = 224
+    Width = 80
+    TabOrder = 11
+    Text = '0'
+  end
+  object btnAdd: TButton
+    Left = 560
+    Height = 25
+    Top = 56
+    Width = 75
+    Caption = 'Add'
+    OnClick = btnAddClick
+    TabOrder = 12
+  end
+end
