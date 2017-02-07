@@ -1,10 +1,10 @@
 object frmAddVector: TfrmAddVector
   Left = 1745
-  Height = 325
+  Height = 482
   Top = 162
   Width = 665
   Caption = 'Add Vector'
-  ClientHeight = 325
+  ClientHeight = 482
   ClientWidth = 665
   LCLVersion = '1.6.2.0'
   object edVec1X: TEdit
@@ -120,5 +120,46 @@ object frmAddVector: TfrmAddVector
     Caption = 'Multiply'
     OnClick = btnMultiplyClick
     TabOrder = 13
+  end
+  object rdgrpInstruction: TRadioGroup
+    Left = 40
+    Height = 105
+    Top = 280
+    Width = 185
+    AutoFill = True
+    Caption = 'Instruction'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 86
+    ClientWidth = 181
+    ItemIndex = 0
+    Items.Strings = (
+      'Non SSE'
+      'SSE'
+    )
+    OnSelectionChanged = rdgrpInstructionSelectionChanged
+    TabOrder = 14
+  end
+  object btnBenchmark: TButton
+    Left = 64
+    Height = 25
+    Top = 404
+    Width = 91
+    Caption = 'Benchmark'
+    OnClick = btnBenchmarkClick
+    TabOrder = 15
+  end
+  object lblBenchmarkResult: TLabel
+    Left = 250
+    Height = 17
+    Top = 310
+    Width = 31
+    Caption = '0 ms'
+    ParentColor = False
   end
 end

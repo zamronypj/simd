@@ -32,7 +32,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="8">
       <Unit0>
         <Filename Value="simddemo.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -67,6 +67,11 @@
         <Filename Value="vectors/vectorsseoperation.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="availvectoroperation.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="availVectorOperation"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

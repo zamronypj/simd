@@ -8,7 +8,8 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, ufrmMain, vectorOperation, vectorType, 
-vectorstdoperation, vectorbaseoperation, vectorsseoperation
+vectorstdoperation, vectorbaseoperation, vectorsseoperation, 
+availVectorOperation
   { you can add units after this };
 
 {$R *.res}

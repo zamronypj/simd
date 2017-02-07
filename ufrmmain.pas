@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  vectorType, vectorOperation;
+  ExtCtrls, vectorType, vectorOperation, availVectorOperation;
 
 type
 
@@ -15,6 +15,7 @@ type
   TfrmAddVector = class(TForm)
     btnAdd: TButton;
     btnMultiply: TButton;
+    btnBenchmark: TButton;
     edVec1X: TEdit;
     edResultY: TEdit;
     edResultZ: TEdit;
@@ -27,24 +28,28 @@ type
     edVec2Z: TEdit;
     edVec2W: TEdit;
     edResultX: TEdit;
+    lblBenchmarkResult: TLabel;
+    rdgrpInstruction: TRadioGroup;
     procedure btnAddClick(Sender: TObject);
+    procedure btnBenchmarkClick(Sender: TObject);
     procedure btnMultiplyClick(Sender: TObject);
+    procedure rdgrpInstructionSelectionChanged(Sender: TObject);
   private
     { private declarations }
     vectOperation : IVectorOperation;
+    availableVectorOperation : TAvailableVectorOperations;
     function getInputVector(edx : TEdit; edy : TEdit; edz : TEdit; edw : TEdit) : TVector;
     procedure displayOutputVector(output:TVector; edx : TEdit; edy : TEdit; edz : TEdit; edw : TEdit);
   public
     { public declarations }
     constructor Create(AOwner : TComponent); override;
+    destructor Destroy(); override;
   end;
 
 var
   frmAddVector: TfrmAddVector;
 
 implementation
-
-uses vectorStdOperation, vectorSSEOperation;
 
 {$R *.lfm}
 
@@ -61,6 +66,27 @@ begin
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
 end;
 
+procedure TfrmAddVector.btnBenchmarkClick(Sender: TObject);
+var input1: TVector;
+    scalar: single;
+    output: TVector;
+    i : integer;
+    tick :QWord;
+begin
+  input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
+  scalar := strToFloat(edVec2X.text);
+
+  tick := getTickCount64();
+  for i:=0 to 100000000 do
+  begin
+    output := vectOperation.mulScalar(input1, scalar);
+  end;
+  tick := getTickCount64() - tick;
+
+  displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
+  lblBenchmarkResult.Caption := rdgrpInstruction.items[rdgrpInstruction.itemIndex] + ' multiply vector scalar (10,000,000 iteration): ' + inttostr(tick) + ' ms';
+end;
+
 procedure TfrmAddVector.btnMultiplyClick(Sender: TObject);
 var input1: TVector;
     scalar: single;
@@ -70,6 +96,12 @@ begin
   scalar := strToFloat(edVec2X.text);
   output := vectOperation.mulScalar(input1, scalar);
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
+end;
+
+procedure TfrmAddVector.rdgrpInstructionSelectionChanged(Sender: TObject);
+begin
+  //assume intemIndex value is 0 or 1
+  vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
 end;
 
 function TfrmAddVector.getInputVector(edx: TEdit; edy: TEdit; edz: TEdit;
@@ -93,8 +125,14 @@ end;
 constructor TfrmAddVector.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
-  //vectOperation := TStdVectorOperation.Create();
-  vectOperation := TSSEVectorOperation.Create();
+  availableVectorOperation := TAvailableVectorOperations.Create();
+  vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
+end;
+
+destructor TfrmAddVector.Destroy;
+begin
+  availableVectorOperation.free();
+  inherited Destroy;
 end;
 
 end.
