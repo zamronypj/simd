@@ -23,14 +23,10 @@ implementation
 
 { TSSEVectorOperation }
 
-function TSSEVectorOperation.add(const vect1: TVector; const vect2: TVector): TVector;
-begin
-  asm
-    movaps xmm0, vect1
-    movaps xmm1, vect2
-    addps xmm0, xmm1
-    movaps [eax], xmm0
-  end;
+function TSSEVectorOperation.add(const vect1: TVector; const vect2: TVector): TVector; assembler;
+asm
+    addps xmm0, xmm2
+//    movaps [eax], xmm0
 end;
 
 function TSSEVectorOperation.mulScalar(const vect1: TVector;

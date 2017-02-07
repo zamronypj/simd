@@ -72,7 +72,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="simddemo"/>
+      <Filename Value="bin/simddemo"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
