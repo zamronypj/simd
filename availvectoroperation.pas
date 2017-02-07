@@ -1,3 +1,12 @@
+{-----------------------------------
+ Vector operation helper
+-------------------------------------
+(c) 2017 Zamrony P. Juhara <zamronypj@yahoo.com>
+http://github.com/zamronypj/simd
+-------------------------------------
+Tested on Ubuntu 14.04 64 bit
+Intel core i7
+-------------------------------------}
 unit availVectorOperation;
 
 {$mode objfpc}{$H+}

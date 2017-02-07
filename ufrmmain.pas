@@ -55,6 +55,19 @@ implementation
 
 { TfrmAddVector }
 
+constructor TfrmAddVector.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  availableVectorOperation := TAvailableVectorOperations.Create();
+  vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
+end;
+
+destructor TfrmAddVector.Destroy;
+begin
+  availableVectorOperation.free();
+  inherited Destroy;
+end;
+
 procedure TfrmAddVector.btnAddClick(Sender: TObject);
 var input1: TVector;
     input2: TVector;
@@ -107,6 +120,7 @@ end;
 function TfrmAddVector.getInputVector(edx: TEdit; edy: TEdit; edz: TEdit;
   edw: TEdit): TVector;
 begin
+  //no validation for simplicity
   result.x := strToFloat(edx.Text);
   result.y := strToFloat(edy.Text);
   result.z := strToFloat(edz.Text);
@@ -116,23 +130,11 @@ end;
 procedure TfrmAddVector.displayOutputVector(output: TVector; edx: TEdit;
   edy: TEdit; edz: TEdit; edw: TEdit);
 begin
+  //no validation for simplicity
   edx.text := floatToStr(output.x);
   edy.text := floatToStr(output.y);
   edz.text := floatToStr(output.z);
   edw.text := floatToStr(output.w);
-end;
-
-constructor TfrmAddVector.Create(AOwner: TComponent);
-begin
-  inherited Create(AOwner);
-  availableVectorOperation := TAvailableVectorOperations.Create();
-  vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
-end;
-
-destructor TfrmAddVector.Destroy;
-begin
-  availableVectorOperation.free();
-  inherited Destroy;
 end;
 
 end.

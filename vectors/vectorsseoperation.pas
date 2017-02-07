@@ -1,3 +1,16 @@
+{-----------------------------------
+ Vector operation with Intel SSE
+ instruction implementation
+-------------------------------------
+(c) 2017 Zamrony P. Juhara <zamronypj@yahoo.com>
+http://github.com/zamronypj/simd
+-------------------------------------
+Tested on Ubuntu 14.04 64 bit
+Intel core i7
+-------------------------------------
+TODO: Need to be tested on other
+platform
+-------------------------------------}
 unit vectorsseoperation;
 
 {$mode objfpc}{$H+}
