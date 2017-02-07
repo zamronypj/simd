@@ -112,4 +112,13 @@ object frmAddVector: TfrmAddVector
     OnClick = btnAddClick
     TabOrder = 12
   end
+  object btnMultiply: TButton
+    Left = 560
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'Multiply'
+    OnClick = btnMultiplyClick
+    TabOrder = 13
+  end
 end

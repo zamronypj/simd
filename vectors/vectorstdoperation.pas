@@ -21,8 +21,7 @@ implementation
 
 { TStdVectorOperation }
 
-function TStdVectorOperation.add(const vect1: TVector; const vect2: TVector
-  ): TVector;
+function TStdVectorOperation.add(const vect1: TVector; const vect2: TVector): TVector;
 begin
   result.x := vect1.x + vect2.x;
   result.y := vect1.y + vect2.y;
@@ -30,13 +29,12 @@ begin
   result.w := vect1.w + vect2.w;
 end;
 
-function TStdVectorOperation.mulScalar(const vect1: TVector;
-  const scalar: single): TVector;
+function TStdVectorOperation.mulScalar(const vect1: TVector; const scalar: single): TVector;
 begin
-  result.x := vect1.x + scalar;
-  result.y := vect1.y + scalar;
-  result.z := vect1.z + scalar;
-  result.w := vect1.w + scalar;
+  result.x := vect1.x * scalar;
+  result.y := vect1.y * scalar;
+  result.z := vect1.z * scalar;
+  result.w := vect1.w * scalar;
 end;
 
 end.

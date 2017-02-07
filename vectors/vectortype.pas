@@ -1,7 +1,8 @@
 unit vectorType;
 
 {$mode objfpc}{$H+}
-{$align 16}
+
+{$ALIGN 16}
 
 interface
 

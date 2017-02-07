@@ -14,6 +14,7 @@ type
 
   TfrmAddVector = class(TForm)
     btnAdd: TButton;
+    btnMultiply: TButton;
     edVec1X: TEdit;
     edResultY: TEdit;
     edResultZ: TEdit;
@@ -27,6 +28,7 @@ type
     edVec2W: TEdit;
     edResultX: TEdit;
     procedure btnAddClick(Sender: TObject);
+    procedure btnMultiplyClick(Sender: TObject);
   private
     { private declarations }
     vectOperation : IVectorOperation;
@@ -56,6 +58,17 @@ begin
   input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
   input2 := getInputVector(edVec2X, edVec2Y, edVec2Z, edVec2W);
   output := vectOperation.add(input1, input2);
+  displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
+end;
+
+procedure TfrmAddVector.btnMultiplyClick(Sender: TObject);
+var input1: TVector;
+    scalar: single;
+    output: TVector;
+begin
+  input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
+  scalar := strToFloat(edVec2X.text);
+  output := vectOperation.mulScalar(input1, scalar);
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
 end;
 
