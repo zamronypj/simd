@@ -17,6 +17,7 @@ type
     btnMultiply: TButton;
     btnBenchmark: TButton;
     btnSubtract: TButton;
+    btnDot: TButton;
     edVec1X: TEdit;
     edResultY: TEdit;
     edResultZ: TEdit;
@@ -33,6 +34,7 @@ type
     rdgrpInstruction: TRadioGroup;
     procedure btnAddClick(Sender: TObject);
     procedure btnBenchmarkClick(Sender: TObject);
+    procedure btnDotClick(Sender: TObject);
     procedure btnMultiplyClick(Sender: TObject);
     procedure btnSubtractClick(Sender: TObject);
     procedure rdgrpInstructionSelectionChanged(Sender: TObject);
@@ -106,6 +108,22 @@ begin
 
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
   displayBenchmarkResult(tick);
+end;
+
+procedure TfrmAddVector.btnDotClick(Sender: TObject);
+var input1: TVector;
+    input2: TVector;
+    output : TVector;
+    dotProd: single;
+begin
+  input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
+  input2 := getInputVector(edVec2X, edVec2Y, edVec2Z, edVec2W);
+  dotProd := vectOperation.dot(input1, input2);
+  output.x := dotProd;
+  output.y := 0;
+  output.z := 0;
+  output.w := 0;
+  displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
 end;
 
 procedure TfrmAddVector.displayBenchmarkResult(const tick: QWord);
