@@ -39,6 +39,14 @@ type
      --------------------------------------}
      function mulScalar(const vect1:TVector; const scalar:single) : TVector;
 
+     {-------------------------------------
+      Dot product of two vectors
+      -------------------------------------
+      result = vect1.x * vect2.x +
+               vect1.y * vect2.y +
+               vect1.z * vect2.z +
+               vect1.w * vect2.w
+     --------------------------------------}
      function dot(const vect1:TVector; const vect2:TVector) : single;
   end;
 
