@@ -20,6 +20,7 @@ type
    TBaseVectorOperation = class(TInterfacedObject, IVectorOperation)
    public
      function add(const vect1:TVector; const vect2:TVector) : TVector; virtual; abstract;
+     function sub(const vect1:TVector; const vect2:TVector) : TVector; virtual; abstract;
      function mulScalar(const vect1:TVector; const scalar:single) : TVector; virtual; abstract;
    end;
 

@@ -16,6 +16,7 @@ type
     btnAdd: TButton;
     btnMultiply: TButton;
     btnBenchmark: TButton;
+    btnSubtract: TButton;
     edVec1X: TEdit;
     edResultY: TEdit;
     edResultZ: TEdit;
@@ -33,6 +34,7 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnBenchmarkClick(Sender: TObject);
     procedure btnMultiplyClick(Sender: TObject);
+    procedure btnSubtractClick(Sender: TObject);
     procedure rdgrpInstructionSelectionChanged(Sender: TObject);
   private
     { private declarations }
@@ -125,9 +127,21 @@ begin
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
 end;
 
+procedure TfrmAddVector.btnSubtractClick(Sender: TObject);
+var input1: TVector;
+    input2: TVector;
+    output: TVector;
+begin
+  input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
+  input2 := getInputVector(edVec2X, edVec2Y, edVec2Z, edVec2W);
+  output := vectOperation.sub(input1, input2);
+  displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
+end;
+
 procedure TfrmAddVector.rdgrpInstructionSelectionChanged(Sender: TObject);
 begin
   vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
+  caption := 'Vector Operation ' + rdgrpInstruction.items[rdgrpInstruction.itemIndex];
 end;
 
 function TfrmAddVector.getInputVector(edx: TEdit; edy: TEdit; edz: TEdit;

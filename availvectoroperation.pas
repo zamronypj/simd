@@ -60,7 +60,7 @@ begin
   availOperations[0] := TStdVectorOperation.Create();
   availOperations[1] := TSSEVectorOperation.Create();
   availOperationNames := TStringList.Create();
-  availOperationNames.Add('Non SSE');
+  availOperationNames.Add('Default');
   availOperationNames.Add('SSE');
 end;
 
