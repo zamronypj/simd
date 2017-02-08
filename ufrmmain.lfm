@@ -2,10 +2,10 @@ object frmAddVector: TfrmAddVector
   Left = 1745
   Height = 482
   Top = 162
-  Width = 665
+  Width = 744
   Caption = 'Add Vector'
   ClientHeight = 482
-  ClientWidth = 665
+  ClientWidth = 744
   LCLVersion = '1.6.2.0'
   object edVec1X: TEdit
     Left = 56
@@ -124,7 +124,7 @@ object frmAddVector: TfrmAddVector
   object rdgrpInstruction: TRadioGroup
     Left = 40
     Height = 105
-    Top = 280
+    Top = 269
     Width = 185
     AutoFill = True
     Caption = 'Instruction'

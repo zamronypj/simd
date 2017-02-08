@@ -40,6 +40,8 @@ type
     availableVectorOperation : TAvailableVectorOperations;
     function getInputVector(edx : TEdit; edy : TEdit; edz : TEdit; edw : TEdit) : TVector;
     procedure displayOutputVector(output:TVector; edx : TEdit; edy : TEdit; edz : TEdit; edw : TEdit);
+    procedure displayBenchmarkResult(const tick : QWord);
+    procedure buildAvailableOperationUI();
   public
     { public declarations }
     constructor Create(AOwner : TComponent); override;
@@ -53,12 +55,16 @@ implementation
 
 {$R *.lfm}
 
+const MAX_ITERATION = 10000000;
+
 { TfrmAddVector }
 
 constructor TfrmAddVector.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   availableVectorOperation := TAvailableVectorOperations.Create();
+  buildAvailableOperationUI();
+  rdgrpInstruction.itemIndex := 0;
   vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
 end;
 
@@ -90,14 +96,22 @@ begin
   scalar := strToFloat(edVec2X.text);
 
   tick := getTickCount64();
-  for i:=0 to 100000000 do
+  for i:=0 to MAX_ITERATION do
   begin
     output := vectOperation.mulScalar(input1, scalar);
   end;
   tick := getTickCount64() - tick;
 
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
-  lblBenchmarkResult.Caption := rdgrpInstruction.items[rdgrpInstruction.itemIndex] + ' multiply vector scalar (10,000,000 iteration): ' + inttostr(tick) + ' ms';
+  displayBenchmarkResult(tick);
+end;
+
+procedure TfrmAddVector.displayBenchmarkResult(const tick: QWord);
+begin
+  lblBenchmarkResult.Caption := rdgrpInstruction.items[rdgrpInstruction.itemIndex] +
+                             ' multiply vector scalar ('+
+                             inttostr(MAX_ITERATION) +' iteration): ' +
+                             inttostr(tick) + ' ms';
 end;
 
 procedure TfrmAddVector.btnMultiplyClick(Sender: TObject);
@@ -113,7 +127,6 @@ end;
 
 procedure TfrmAddVector.rdgrpInstructionSelectionChanged(Sender: TObject);
 begin
-  //assume intemIndex value is 0 or 1
   vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
 end;
 
@@ -135,6 +148,17 @@ begin
   edy.text := floatToStr(output.y);
   edz.text := floatToStr(output.z);
   edw.text := floatToStr(output.w);
+end;
+
+
+procedure TfrmAddVector.buildAvailableOperationUI();
+var i:integer;
+begin
+  rdgrpInstruction.Items.clear();
+  for i := 0 to availableVectorOperation.count - 1 do
+  begin
+    rdgrpInstruction.Items.add(availableVectorOperation.operationNames[i]);
+  end;
 end;
 
 end.
