@@ -22,6 +22,7 @@ type
      function add(const vect1:TVector; const vect2:TVector) : TVector; virtual; abstract;
      function sub(const vect1:TVector; const vect2:TVector) : TVector; virtual; abstract;
      function mulScalar(const vect1:TVector; const scalar:single) : TVector; virtual; abstract;
+     function dot(const vect1:TVector; const vect2:TVector) : single; virtual; abstract;
    end;
 
 implementation

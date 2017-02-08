@@ -171,4 +171,13 @@ object frmAddVector: TfrmAddVector
     OnClick = btnSubtractClick
     TabOrder = 16
   end
+  object btnDot: TButton
+    Left = 648
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'Dot'
+    OnClick = btnDotClick
+    TabOrder = 17
+  end
 end
