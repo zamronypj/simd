@@ -27,6 +27,10 @@ type
      function sub(const vect1:TVector; const vect2:TVector) : TVector; override;
      function mulScalar(const vect1:TVector; const scalar:single) : TVector; override;
      function dot(const vect1:TVector; const vect2:TVector) : single; override;
+     function cross(const vect1:TVector; const vect2:TVector) : TVector; override;
+     function length(const vect1:TVector) : single; override;
+     function normalize(const vect1:TVector) : TVector; override;
+     function distance(const vect1:TVector; const vect2:TVector) : single; override;
    end;
 
 implementation
@@ -75,6 +79,43 @@ begin
             vect1.y * vect2.y +
             vect1.z * vect2.z +
             vect1.w * vect2.w;
+end;
+
+{-------------------------------------
+ Cross product of two vectors
+--------------------------------------}
+function TStdVectorOperation.cross(const vect1: TVector; const vect2: TVector) : TVector;
+begin
+  result.x := vect1.y * vect2.z - vect1.z * vect2.y;
+  result.y := vect1.z * vect2.x - vect1.x * vect2.z;
+  result.z := vect1.x * vect2.y - vect1.y * vect2.x;
+  result.w := 0;
+end;
+
+{-------------------------------------
+ Length of a vector
+--------------------------------------}
+function TStdVectorOperation.length(const vect1: TVector) : single;
+begin
+  result := sqrt(vect1.x * vect1.x +
+                 vect1.y * vect1.y +
+                 vect1.z * vect1.z);
+end;
+
+{-------------------------------------
+ Normalize vector to unit vector
+--------------------------------------}
+function TStdVectorOperation.normalize(const vect1: TVector): TVector;
+begin
+  result := mulScalar(vect1, length(vect1));
+end;
+
+{-------------------------------------
+ Distance between two vectors
+--------------------------------------}
+function TStdVectorOperation.distance(const vect1: TVector; const vect2: TVector): single;
+begin
+  result := length(sub(vect1, vect2));
 end;
 
 end.
