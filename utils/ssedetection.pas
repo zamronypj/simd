@@ -1,6 +1,6 @@
 {-----------------------------------
- Intel SSE/SSE2/SSE3/SSE4.1 feature detection
- helper implementation
+ Intel SSE/SSE2/SSE3/SSE4.1/SSE4.2
+ feature detection helper implementation
 -------------------------------------
 (c) 2017 Zamrony P. Juhara <zamronypj@yahoo.com>
 http://github.com/zamronypj/simd
@@ -59,12 +59,12 @@ const
 
 { TSSEFeatureDetection }
 
-function TSSEFeatureDetection.getSSESupportedStatus(): boolean;
+function TSSEFeatureDetection.getSSESupportedStatus() : boolean;
 begin
   result:= (cpuidEDXResult and SSE_SUPPORTED_FLAG) = SSE_SUPPORTED_FLAG;
 end;
 
-function TSSEFeatureDetection.getSSE2SupportedStatus(): boolean;
+function TSSEFeatureDetection.getSSE2SupportedStatus() : boolean;
 begin
   result:= (cpuidEDXResult and SSE2_SUPPORTED_FLAG) = SSE2_SUPPORTED_FLAG;
 end;
@@ -74,17 +74,17 @@ begin
   result:= (cpuidECXResult and SSE3_SUPPORTED_FLAG) = SSE3_SUPPORTED_FLAG;
 end;
 
-function TSSEFeatureDetection.getSSSE3SupportedStatus: boolean;
+function TSSEFeatureDetection.getSSSE3SupportedStatus() : boolean;
 begin
   result:= (cpuidECXResult and SSSE3_SUPPORTED_FLAG) = SSSE3_SUPPORTED_FLAG;
 end;
 
-function TSSEFeatureDetection.getSSE41SupportedStatus(): boolean;
+function TSSEFeatureDetection.getSSE41SupportedStatus() : boolean;
 begin
   result:= (cpuidECXResult and SSE4_1_SUPPORTED_FLAG) = SSE4_1_SUPPORTED_FLAG;
 end;
 
-function TSSEFeatureDetection.getSSE42SupportedStatus(): boolean;
+function TSSEFeatureDetection.getSSE42SupportedStatus() : boolean;
 begin
   result:= (cpuidECXResult and SSE4_2_SUPPORTED_FLAG) = SSE4_2_SUPPORTED_FLAG;
 end;
