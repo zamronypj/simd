@@ -22,7 +22,7 @@ type
 
    TAvailableVectorOperations = class(TObject)
    private
-       availOperations : array[0..1] of IVectorOperation;
+       availOperations : array[0..3] of IVectorOperation;
        availOperationNames : TStringList;
        function getAvailableOperations(const indx:integer): IVectorOperation;
        function getOperationNames(const indx:integer) : string;
@@ -36,7 +36,7 @@ type
    end;
 
 implementation
-uses vectorStdOperation, vectorSSEOperation;
+uses vectorStdOperation, vectorSSEOperation, vectorSSE3Operation, vectorSSE41Operation;
 
 { TAvailableVectorOperations }
 
@@ -59,15 +59,21 @@ constructor TAvailableVectorOperations.Create();
 begin
   availOperations[0] := TStdVectorOperation.Create();
   availOperations[1] := TSSEVectorOperation.Create();
+  availOperations[2] := TSSE3VectorOperation.Create();
+  availOperations[3] := TSSE41VectorOperation.Create();
   availOperationNames := TStringList.Create();
   availOperationNames.Add('Default');
   availOperationNames.Add('SSE');
+  availOperationNames.Add('SSE 3');
+  availOperationNames.Add('SSE 4.1');
 end;
 
 destructor TAvailableVectorOperations.Destroy();
 begin
   availOperations[0] := nil;
   availOperations[1] := nil;
+  availOperations[2] := nil;
+  availOperations[3] := nil;
   availOperationNames.free();
   inherited Destroy;
 end;

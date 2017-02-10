@@ -72,13 +72,14 @@ end;
 
 {-------------------------------------
  Dot product of two vectors
+--------------------------------------
+ vect1.w and vect2.w part is ignored
 --------------------------------------}
 function TStdVectorOperation.dot(const vect1: TVector; const vect2: TVector): single;
 begin
   result := vect1.x * vect2.x +
             vect1.y * vect2.y +
-            vect1.z * vect2.z +
-            vect1.w * vect2.w;
+            vect1.z * vect2.z;
 end;
 
 {-------------------------------------

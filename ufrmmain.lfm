@@ -112,13 +112,13 @@ object frmAddVector: TfrmAddVector
     OnClick = btnAddClick
     TabOrder = 12
   end
-  object btnMultiply: TButton
+  object btnMultiplyScalar: TButton
     Left = 560
     Height = 25
     Top = 96
     Width = 75
-    Caption = 'Multiply'
-    OnClick = btnMultiplyClick
+    Caption = 'Mul Scalar'
+    OnClick = btnMultiplyScalarClick
     TabOrder = 13
   end
   object rdgrpInstruction: TRadioGroup
@@ -179,5 +179,14 @@ object frmAddVector: TfrmAddVector
     Caption = 'Dot'
     OnClick = btnDotClick
     TabOrder = 17
+  end
+  object btnLength: TButton
+    Left = 560
+    Height = 25
+    Top = 136
+    Width = 75
+    Caption = 'Length'
+    OnClick = btnLengthClick
+    TabOrder = 18
   end
 end

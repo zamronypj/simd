@@ -14,10 +14,11 @@ type
 
   TfrmAddVector = class(TForm)
     btnAdd: TButton;
-    btnMultiply: TButton;
+    btnMultiplyScalar: TButton;
     btnBenchmark: TButton;
     btnSubtract: TButton;
     btnDot: TButton;
+    btnLength: TButton;
     edVec1X: TEdit;
     edResultY: TEdit;
     edResultZ: TEdit;
@@ -35,7 +36,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnBenchmarkClick(Sender: TObject);
     procedure btnDotClick(Sender: TObject);
-    procedure btnMultiplyClick(Sender: TObject);
+    procedure btnLengthClick(Sender: TObject);
+    procedure btnMultiplyScalarClick(Sender: TObject);
     procedure btnSubtractClick(Sender: TObject);
     procedure rdgrpInstructionSelectionChanged(Sender: TObject);
   private
@@ -114,12 +116,22 @@ procedure TfrmAddVector.btnDotClick(Sender: TObject);
 var input1: TVector;
     input2: TVector;
     output : TVector;
-    dotProd: single;
 begin
   input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
   input2 := getInputVector(edVec2X, edVec2Y, edVec2Z, edVec2W);
-  dotProd := vectOperation.dot(input1, input2);
-  output.x := dotProd;
+  output.x := vectOperation.dot(input1, input2);
+  output.y := 0;
+  output.z := 0;
+  output.w := 0;
+  displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
+end;
+
+procedure TfrmAddVector.btnLengthClick(Sender: TObject);
+var input1: TVector;
+    output: TVector;
+begin
+  input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
+  output.x := vectOperation.length(input1);
   output.y := 0;
   output.z := 0;
   output.w := 0;
@@ -134,7 +146,7 @@ begin
                              inttostr(tick) + ' ms';
 end;
 
-procedure TfrmAddVector.btnMultiplyClick(Sender: TObject);
+procedure TfrmAddVector.btnMultiplyScalarClick(Sender: TObject);
 var input1: TVector;
     scalar: single;
     output: TVector;
