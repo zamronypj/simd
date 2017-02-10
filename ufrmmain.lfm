@@ -189,4 +189,52 @@ object frmAddVector: TfrmAddVector
     OnClick = btnLengthClick
     TabOrder = 18
   end
+  object chkbxSSESupported: TCheckBox
+    Left = 256
+    Height = 24
+    Top = 378
+    Width = 125
+    Caption = 'SSE Supported'
+    TabOrder = 19
+  end
+  object chkbxSSE2Supported: TCheckBox
+    Left = 415
+    Height = 24
+    Top = 378
+    Width = 136
+    Caption = 'SSE 2 Supported'
+    TabOrder = 20
+  end
+  object chkbxSSE41Supported: TCheckBox
+    Left = 416
+    Height = 24
+    Top = 424
+    Width = 148
+    Caption = 'SSE 4.1 Supported'
+    TabOrder = 21
+  end
+  object chkbxSSE3Supported: TCheckBox
+    Left = 584
+    Height = 24
+    Top = 378
+    Width = 136
+    Caption = 'SSE 3 Supported'
+    TabOrder = 22
+  end
+  object chkbxSSE42Supported: TCheckBox
+    Left = 584
+    Height = 24
+    Top = 424
+    Width = 148
+    Caption = 'SSE 4.2 Supported'
+    TabOrder = 23
+  end
+  object chkbxSSSE3Supported: TCheckBox
+    Left = 256
+    Height = 24
+    Top = 424
+    Width = 144
+    Caption = 'SSSE 3 Supported'
+    TabOrder = 24
+  end
 end

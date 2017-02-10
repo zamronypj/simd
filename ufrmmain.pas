@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, vectorType, vectorOperation, availVectorOperation;
+  ExtCtrls, vectorType, vectorOperation, availVectorOperation, SSEDetection;
 
 type
 
@@ -19,6 +19,12 @@ type
     btnSubtract: TButton;
     btnDot: TButton;
     btnLength: TButton;
+    chkbxSSSE3Supported: TCheckBox;
+    chkbxSSE42Supported: TCheckBox;
+    chkbxSSESupported: TCheckBox;
+    chkbxSSE2Supported: TCheckBox;
+    chkbxSSE41Supported: TCheckBox;
+    chkbxSSE3Supported: TCheckBox;
     edVec1X: TEdit;
     edResultY: TEdit;
     edResultZ: TEdit;
@@ -44,6 +50,7 @@ type
     { private declarations }
     vectOperation : IVectorOperation;
     availableVectorOperation : TAvailableVectorOperations;
+    SSEFeatureDetector : TSSEFeatureDetection;
     function getInputVector(edx : TEdit; edy : TEdit; edz : TEdit; edw : TEdit) : TVector;
     procedure displayOutputVector(output:TVector; edx : TEdit; edy : TEdit; edz : TEdit; edw : TEdit);
     procedure displayBenchmarkResult(const tick : QWord);
@@ -72,6 +79,14 @@ begin
   buildAvailableOperationUI();
   rdgrpInstruction.itemIndex := 0;
   vectOperation := availableVectorOperation[rdgrpInstruction.itemIndex];
+
+  SSEFeatureDetector := TSSEFeatureDetection.Create();
+  chkbxSSESupported.checked := SSEFeatureDetector.SSESupported;
+  chkbxSSE2Supported.checked := SSEFeatureDetector.SSE2Supported;
+  chkbxSSE3Supported.checked := SSEFeatureDetector.SSE3Supported;
+  chkbxSSSE3Supported.checked := SSEFeatureDetector.SSSE3Supported;
+  chkbxSSE41Supported.checked := SSEFeatureDetector.SSE41Supported;
+  chkbxSSE42Supported.checked := SSEFeatureDetector.SSE42Supported;
 end;
 
 destructor TfrmAddVector.Destroy;

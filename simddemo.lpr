@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, ufrmMain, vectorOperation, vectorType, 
 vectorstdoperation, vectorbaseoperation, vectorsseoperation, 
-availVectorOperation, vectorsse41operation, vectorsse3operation
+availVectorOperation, vectorsse41operation, vectorsse3operation, ssedetection
   { you can add units after this };
 
 {$R *.res}
