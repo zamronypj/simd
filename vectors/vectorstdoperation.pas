@@ -108,7 +108,7 @@ end;
 --------------------------------------}
 function TStdVectorOperation.normalize(const vect1: TVector): TVector;
 begin
-  result := mulScalar(vect1, length(vect1));
+  result := mulScalar(vect1, 1/length(vect1));
 end;
 
 {-------------------------------------

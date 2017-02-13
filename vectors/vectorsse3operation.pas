@@ -127,9 +127,44 @@ asm
     sqrtss xmm0, xmm0
 end;
 
-function TSSE3VectorOperation.normalize(const vect1: TVector): TVector;
-begin
-  Result:=inherited normalize(vect1);
+function TSSE3VectorOperation.normalize(const vect1: TVector): TVector; assembler;
+asm
+    //---------this can be removed if vect1.w = 0 --------------
+    //before shuffle
+    //xmm1 = {vect1.z, vect1.w, 0, 0}
+    //after shuffle
+    //xmm1 = {vect1.z, 0, 0, 0}
+    shufps xmm1, xmm1, 11101000b
+    //---------this can be removed if vect1.w = 0 --------------
+
+    //copy low quadword of xmm1 to high quadword of xmm0
+    //xmm0 = {vect1.x, vect1.y, vect1.z, 0}
+    //xmm1 = {vect1.x, vect1.y, vect1.z, 0}
+    movlhps xmm0, xmm1
+    movaps xmm1, xmm0
+
+    //multiply
+    //xmm1 = [ vect1.x * vect1.x, vect1.y * vect1.y, vect1.z * vect1.z, 0 ]
+    mulps xmm1, xmm1
+
+    //horizontal add
+    //xmm1 = [ a, b, a, b ]
+    //where a = (vect1.x * vect1.x) + (vect1.y * vect1.y),
+    //      b = vect1.z * vect1.z + 0
+    haddps xmm1, xmm1
+
+    //horizontal add
+    //xmm1 = [ c, c, c, c ]
+    //where a = (vect1.x * vect1.x) + (vect1.y * vect1.y),
+    //      b = vect1.z * vect1.z
+    //      c = a + b
+    haddps xmm1, xmm1
+
+    //square root
+    //xmm1 = [ 1/sqrt(c), 1/sqrt(c), 1/sqrt(c), 1/sqrt(c)]
+    rsqrtps xmm1, xmm1
+
+    mulps xmm0, xmm1
 end;
 
 end.
