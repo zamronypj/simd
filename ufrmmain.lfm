@@ -237,4 +237,13 @@ object frmAddVector: TfrmAddVector
     Caption = 'SSSE 3 Supported'
     TabOrder = 24
   end
+  object btnNormalize: TButton
+    Left = 648
+    Height = 25
+    Top = 136
+    Width = 75
+    Caption = 'Normalize'
+    OnClick = btnNormalizeClick
+    TabOrder = 25
+  end
 end

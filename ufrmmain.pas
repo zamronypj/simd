@@ -19,6 +19,7 @@ type
     btnSubtract: TButton;
     btnDot: TButton;
     btnLength: TButton;
+    btnNormalize: TButton;
     chkbxSSSE3Supported: TCheckBox;
     chkbxSSE42Supported: TCheckBox;
     chkbxSSESupported: TCheckBox;
@@ -44,6 +45,7 @@ type
     procedure btnDotClick(Sender: TObject);
     procedure btnLengthClick(Sender: TObject);
     procedure btnMultiplyScalarClick(Sender: TObject);
+    procedure btnNormalizeClick(Sender: TObject);
     procedure btnSubtractClick(Sender: TObject);
     procedure rdgrpInstructionSelectionChanged(Sender: TObject);
   private
@@ -169,6 +171,15 @@ begin
   input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
   scalar := strToFloat(edVec2X.text);
   output := vectOperation.mulScalar(input1, scalar);
+  displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
+end;
+
+procedure TfrmAddVector.btnNormalizeClick(Sender: TObject);
+var input1: TVector;
+    output: TVector;
+begin
+  input1 := getInputVector(edVec1X, edVec1Y, edVec1Z, edVec1W);
+  output:= vectOperation.normalize(input1);
   displayOutputVector(output, edResultX, edResultY, edResultZ, edResultW);
 end;
 

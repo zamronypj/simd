@@ -165,6 +165,7 @@ asm
     rsqrtps xmm1, xmm1
 
     mulps xmm0, xmm1
+    movhlps xmm1, xmm0
 end;
 
 end.
